@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F.Express Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/fe_logo.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <a href="#" onclick="navigate(homeUrl)" class="nav-icon-container">
+                <img src="{% static 'images/fe_logo.png' %}" alt="Home" class="nav-icon"/>
+            </a>
+            <div class="nav-items">
+                {% if not user.is_authenticated %}
+                    <button onclick="navigate(loginUrl)" class="nav-button">Login</button>
+                    <button onclick="navigate(registerUrl)" class="nav-button last-button">Register</button>
+                {% else %}
+                    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-button last-button">Logout</button>
+                    </form>
+                {% endif %}
+            </div>
+        </nav>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Fiction Express Blog. All rights reserved.</p>
+        <p>Contact us at: <a href="mailto:support@fictionexpressblog.com">support@fictionexpressblog.com</a></p>
+    </div>
+    <script type="text/javascript">
+        
+        var homeUrl = "{% url 'home' %}";
+        var loginUrl = "{% url 'login' %}";
+        var registerUrl = "{% url 'register' %}";
+        var logoutUrl = "{% url 'logout' %}";
+
+        function navigate(url) {
+            window.location.href = url;
+        }
+
+        var modal = document.getElementById('postModal');
+        
+        var span = document.getElementsByClassName("close")[0];
+        
+        function openModal(title, content, details) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalContent').innerText = content;
+            document.getElementById('modalDetails').innerText = details;
+            modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+    </script>
+</body>
+</html>

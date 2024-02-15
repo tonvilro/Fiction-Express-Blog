@@ -1,0 +1,225 @@
+/* Define root colors and spacing for consistency */
+:root {
+    --primary-color: #00AEEF;
+    --secondary-color: #008CBA;
+    --hover-color: #007B9E;
+    --text-color: #333;
+    --background-color: #fff;
+    --footer-background-color: #333;
+    --button-orange: #FFA500;
+    --button-warning: #e73a00;
+    --font-family: 'Arial', sans-serif;
+    --border-radius: 4px;
+    --padding: 10px 20px;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+.footer, .wrapper::after {
+    height: 70px; 
+}
+
+.footer {
+    background-color: var(--footer-background-color);
+    color: white;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer p {
+    margin: 0;
+    padding: 3px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: var(--button-orange);
+}
+
+.nav {
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.nav-icon-container {
+    background-color: white;
+}
+
+.nav-icon {
+    height: 70px;
+    width: 70px;
+    padding: 5px;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+}
+
+.nav-button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: var(--padding);
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+.last-button {
+    margin-right: 20px;
+}
+
+.nav-button:hover {
+    background-color: var(--hover-color);
+}
+
+.button {
+    background-color: var(--button-orange);
+    color: white;
+    border: none;
+    padding: var(--padding);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+}
+
+.delete-button {
+    background-color: var(--button-warning);
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+.content {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.post-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start; /* Aligns items at the start of the container */
+    background-color: #f9f9f9; /* Light grey background for each post */
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+    position: relative; /* For absolute positioning of the delete button */
+    cursor: pointer;
+}
+
+.post {
+    margin-right: 10px; /* Ensures space between the post content and the delete button */
+}
+
+.post-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.delete-button {
+    color: var(--button-warning); /* Warning color for the delete icon */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.step-links > a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.step-links > a:hover {
+    text-decoration: underline;
+}
+
+.home-user-container {
+    background-color: var(--secondary-color); /* Bootstrap primary blue, but you can use any shade of blue you prefer */
+    color: white; /* Ensures text is readable against the blue background */
+    padding: 15px; /* Adds some space inside the container */
+    margin: 20px 0; /* Adds some space outside the container, top and bottom */
+    border-radius: 5px; /* Optional: Adds rounded corners to the container */
+}
+
+.home-user-container a {
+    color: white; /* Ensures links are also white for readability */
+    text-decoration: underline; /* Optional: Underlines links for clarity */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
