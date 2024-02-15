@@ -20,6 +20,10 @@
                     <button onclick="navigate(loginUrl)" class="nav-button">Login</button>
                     <button onclick="navigate(registerUrl)" class="nav-button last-button">Register</button>
                 {% else %}
+                    <div class="user-info">
+                        <span class="user-display">{{ user.first_name }} {{ user.last_name }}</span>
+                        <i class="fas fa-user-circle user-display"></i> 
+                    </div>
                     <form action="{% url 'logout' %}" method="post" style="display: inline;">
                         {% csrf_token %}
                         <button type="submit" class="nav-button last-button">Logout</button>
@@ -35,7 +39,7 @@
     <div class="footer">
         <p>&copy; 2024 Fiction Express Blog. All rights reserved.</p>
         <p>Contact us at: <a href="mailto:support@fictionexpressblog.com">support@fictionexpressblog.com</a></p>
-    </div>
+    </div>  
     <script type="text/javascript">
         
         var homeUrl = "{% url 'home' %}";
@@ -47,24 +51,37 @@
             window.location.href = url;
         }
 
+        // Retrieves the modal element and the span element that closes the modal
         var modal = document.getElementById('postModal');
-        
         var span = document.getElementsByClassName("close")[0];
-        
+
+        // Opens the modal with the given title, content, and details
         function openModal(title, content, details) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalContent').innerText = content;
-            document.getElementById('modalDetails').innerText = details;
-            modal.style.display = "block";
-        }
-        
-        span.onclick = function() {
-            modal.style.display = "none";
+            if (modal) {
+                document.getElementById('modalTitle').innerText = title || '';
+                document.getElementById('modalContent').innerText = content || '';
+                document.getElementById('modalDetails').innerText = details || '';
+                modal.style.display = "block";
+                // Add the body-no-scroll class to prevent scrolling of background content
+                document.body.classList.add('body-no-scroll');
+            }
         }
 
+        // Closes the modal and removes the no-scroll class from the body
+        if (span) {
+            span.onclick = function() {
+                if (modal) {
+                    modal.style.display = "none";
+                    document.body.classList.remove('body-no-scroll');
+                }
+            }
+        }
+
+        // Closes the modal if the user clicks outside of it
         window.onclick = function(event) {
-            if (event.target == modal) {
+            if (modal && event.target == modal) {
                 modal.style.display = "none";
+                document.body.classList.remove('body-no-scroll');
             }
         }
         

@@ -20,9 +20,12 @@ def register(request):
     return render(request, 'accounts/register.html', {'form': form})
 
 def home(request):
-    posts = Post.objects.all()
-    paginator = Paginator(posts, 5)  # Show 5 posts per page.
+    if 'my_posts' in request.GET and request.user.is_authenticated:
+        posts = Post.objects.filter(author=request.user)
+    else:
+        posts = Post.objects.all()
 
+    paginator = Paginator(posts, 5)  # Show 5 posts per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'accounts/home.html', {'page_obj': page_obj})
