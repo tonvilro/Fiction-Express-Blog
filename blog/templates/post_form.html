@@ -2,10 +2,17 @@
 {% block content %}
 <div class="container">
     <h2>Create a New Post</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="button">Post</button>
-    </form>
+    <div class="form-wrapper">
+      <form method="POST">
+          {% csrf_token %}
+          <div class="form-row">
+            {{ form.title.label_tag }} {{ form.title }}
+          </div>
+          <div class="form-row">
+            {{ form.content.label_tag }} {{ form.content }}
+          </div>
+          <button type="submit" class="button">Post</button>
+      </form>
+    </div>
 </div>
 {% endblock %}

@@ -42,7 +42,7 @@ def post_create(request):
             return redirect('home')
     else:
         form = PostForm()
-    return render(request, 'accounts/post_form.html', {'form': form})
+    return render(request, 'post_form.html', {'form': form})
 
 @login_required
 def post_delete(request, pk):
@@ -55,5 +55,5 @@ def post_delete(request, pk):
             return redirect('home')
         else:
             messages.error(request, "You do not have permission to delete this post.")
-    print(post)
-    return render(request, 'post_confirm_delete.html', {'object': post})
+
+    return render(request, 'post_confirm_delete.html', {'post': post})

@@ -244,3 +244,36 @@ h1, h2, h3 {
     overflow: hidden;
     height: 100%;
 }
+
+.form-wrapper {
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    max-width: 500px;
+}
+
+.form-row {
+    margin-bottom: 15px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: 100%;
+    padding: var(--padding);
+    margin: 5px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+}
+
+.logout-message {
+    background-color: #f2f2f2;
+    border-left: 5px solid var(--button-warning);
+    padding: 10px;
+    margin-bottom: 20px;
+}
