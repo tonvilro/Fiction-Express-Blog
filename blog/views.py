@@ -17,7 +17,7 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'accounts/register.html', {'form': form})
+    return render(request, 'register.html', {'form': form})
 
 def home(request):
     if 'my_posts' in request.GET and request.user.is_authenticated:
@@ -25,10 +25,10 @@ def home(request):
     else:
         posts = Post.objects.all()
 
-    paginator = Paginator(posts, 5)  # Show 5 posts per page.
+    paginator = Paginator(posts, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'accounts/home.html', {'page_obj': page_obj})
+    return render(request, 'home.html', {'page_obj': page_obj})
 
 @login_required
 def post_create(request):
@@ -56,4 +56,4 @@ def post_delete(request, pk):
         else:
             messages.error(request, "You do not have permission to delete this post.")
     print(post)
-    return render(request, 'accounts/post_confirm_delete.html', {'object': post})
+    return render(request, 'post_confirm_delete.html', {'object': post})

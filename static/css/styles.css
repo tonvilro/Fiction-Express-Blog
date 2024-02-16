@@ -1,4 +1,3 @@
-/* Define root colors and spacing for consistency */
 :root {
     --primary-color: #00AEEF;
     --secondary-color: #008CBA;
@@ -148,17 +147,17 @@ h1, h2, h3 {
 .post-container {
     display: flex;
     justify-content: space-between;
-    align-items: start; /* Aligns items at the start of the container */
-    background-color: #f9f9f9; /* Light grey background for each post */
+    align-items: start;
+    background-color: #f9f9f9;
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 20px;
-    position: relative; /* For absolute positioning of the delete button */
+    position: relative;
     cursor: pointer;
 }
 
 .post {
-    margin-right: 10px; /* Ensures space between the post content and the delete button */
+    margin-right: 10px;
 }
 
 .post-delete {
@@ -168,7 +167,7 @@ h1, h2, h3 {
 }
 
 .delete-button {
-    color: var(--button-warning); /* Warning color for the delete icon */
+    color: var(--button-warning);
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -191,36 +190,34 @@ h1, h2, h3 {
 }
 
 .home-user-container {
-    background-color: var(--secondary-color); /* Bootstrap primary blue, but you can use any shade of blue you prefer */
-    color: white; /* Ensures text is readable against the blue background */
-    padding: 15px; /* Adds some space inside the container */
-    margin: 20px 0; /* Adds some space outside the container, top and bottom */
-    border-radius: 5px; /* Optional: Adds rounded corners to the container */
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .home-user-container a {
-    color: white; /* Ensures links are also white for readability */
-    text-decoration: underline; /* Optional: Underlines links for clarity */
+    color: white;
+    text-decoration: underline;
 }
 
-/* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
