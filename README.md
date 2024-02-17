@@ -23,7 +23,7 @@ Replace <repository-url> with your repository URL and <repository-directory> wit
 
 ### 2. Build Docker Containers
 
-Build the project containers using Docker Compose:
+Build the project containers using Docker Compose:  
 
 ```bash
 docker-compose build
