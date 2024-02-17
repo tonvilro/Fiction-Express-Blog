@@ -55,7 +55,7 @@ docker-compose exec web python manage.py createsuperuser
 Follow the prompts to complete the creation.
 
 ### 6. Verify Installation
-Your project should now be running. Access the application through the web browser at the designated URL, usually http://localhost:8000.
+Your project should now be running. Access the application through the web browser at the designated URL, probably http://localhost:8000.
 
 ### Troubleshooting
 
