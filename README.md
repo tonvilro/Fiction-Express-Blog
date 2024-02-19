@@ -6,13 +6,13 @@ Before you begin, ensure you have met the following requirements:
 - Docker
 - Docker Compose
 
-You can download Docker, which includes Docker Compose, from the [official Docker website](https://docs.docker.com/get-docker/).
+[official Docker website](https://docs.docker.com/get-docker/)
 
 ## Installation
 
 Follow these steps to get your development environment up and running:
 
-### 1. Clone the Repository
+### 1. (Optional) Clone the Repository
 
 ```bash
 git clone <repository-url>
@@ -23,7 +23,7 @@ Replace <repository-url> with your repository URL and <repository-directory> wit
 
 ### 2. Build Docker Containers
 
-Build the project containers using Docker Compose:  
+Navigate to the root folder of the project and build the project containers using Docker Compose:  
 
 ```bash
 docker-compose build
