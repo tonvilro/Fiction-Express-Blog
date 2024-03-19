@@ -19,6 +19,7 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
 
+
 def home(request):
     if 'my_posts' in request.GET and request.user.is_authenticated:
         posts = Post.objects.filter(author=request.user)
